@@ -1,0 +1,153 @@
+/* Reset básico */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #fdfdfd, #f0f4f8);
+  color: #222;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* Botón modo oscuro */
+#darkModeToggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #32363a;
+  border: none;
+  color: white;
+  padding: 8px 16px;
+  cursor: pointer;
+  border-radius: 4px;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+#darkModeToggle:hover {
+  background: #777;
+}
+
+/* Contenedor principal: Flexbox */
+.contenedor {
+  background: #fff;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+  border-radius: 12px;
+  padding: 40px 30px;
+  max-width: 960px;
+  margin: 80px auto 40px;
+  display: flex;
+  align-items: center;
+  gap: 60px;
+}
+
+/* Perfil: foto y nombre */
+.perfil {
+  flex: 1;
+  text-align: center;
+}
+
+.foto-perfil {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #727e8c;
+  box-shadow: 0 0 15px rgba(0, 123, 255, 0.3);
+  margin-bottom: 20px;
+}
+
+.perfil h1 {
+  font-weight: 700;
+  font-size: 1.8rem;
+  color: #727e8c;
+}
+
+/* Secciones de información */
+.secciones {
+  flex: 2;
+  text-align: left;
+}
+
+.secciones h2 {
+  font-weight: 600;
+  font-size: 1.3rem;
+  margin-bottom: 8px;
+  color: #727e8c;
+  border-bottom: 2px solid #727e8c;
+  padding-bottom: 4px;
+  margin-top: 24px;
+}
+
+.secciones p {
+  margin-bottom: 16px;
+  font-size: 1rem;
+  color: #333;
+}
+
+.secciones a {
+  color: #727e8c;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.secciones a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive: para pantallas pequeñas */
+@media (max-width: 768px) {
+  .contenedor {
+    flex-direction: column;
+    margin: 40px 20px;
+  }
+
+  .perfil {
+    margin-bottom: 40px;
+  }
+
+  .foto-perfil {
+    width: 140px;
+    height: 140px;
+  }
+}
+
+/* Modo oscuro */
+body.dark-mode {
+  background: #121212;
+  color: #e0e0e0;
+}
+
+body.dark-mode .contenedor {
+  background: #1f1f1f;  /* Fondo oscuro dentro del contenedor */
+  box-shadow: 0 8px 24px rgba(0,0,0,0.7);
+}
+
+body.dark-mode .perfil h1,
+body.dark-mode .secciones h2 {
+  color: #777; /* Azul claro */
+}
+
+body.dark-mode .foto-perfil {
+  border-color: #777;
+  box-shadow: 0 0 15px rgba(82, 89, 96, 0.7);
+}
+
+body.dark-mode .secciones p,
+body.dark-mode .secciones a {
+  color: #ccc;
+}
+
+body.dark-mode #darkModeToggle {
+  background: #777;
+  color: #121212;
+}
+
+body.dark-mode #darkModeToggle:hover {
+  background: #ccc;
+}
