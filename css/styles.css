@@ -69,24 +69,20 @@ body {
   color: #727e8c;
 }
 
-/* Secciones de información - contenedor flexible para columnas */
+/* Secciones de información - restaurando estructura de lista vertical */
 .secciones {
-  flex: 1 1 0; /* crece para ocupar el resto del espacio disponible */
-  min-width: 300px; /* evitar que se haga demasiado pequeño */
-  max-width: 660px; /* límite máximo para evitar textos muy anchos */
+  /* Conservamos el espacio asignado pero la mostramos como bloque */
+  flex: 1 1 0; 
+  min-width: 300px;
+  max-width: 660px;
   text-align: left;
-
-  display: flex;
-  flex-wrap: wrap;
-  gap: 30px;
-  justify-content: flex-start;
+  display: block; /* ya no es contenedor flex de info-block */
 }
 
-/* Cada bloque de info (titulo + párrafo) */
+/* Cada bloque de info se mostrará en forma vertical */
 .info-block {
-  flex: 1 1 45%; /* aproximadamente dos columnas */
-  min-width: 280px;
-  max-width: 320px;
+  display: block;
+  margin-bottom: 30px;
 }
 
 .info-block h2 {
@@ -137,23 +133,9 @@ body {
   }
 
   .secciones {
-    flex-direction: column;
+    /* En móviles se mantiene la estructura de lista vertical */
     flex: none;
     width: 100%;
-    max-width: 100%;
-    gap: 20px;
-  }
-
-  .info-block {
-    flex: 1 1 100%;
-    max-width: 100%;
-    min-width: auto;
-  }
-
-  /* Quitar máximo ancho en textos para que usen el ancho completo */
-  .info-block h2,
-  .info-block p,
-  .info-block a {
     max-width: 100%;
   }
 }
