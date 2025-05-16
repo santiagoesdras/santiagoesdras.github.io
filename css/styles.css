@@ -39,17 +39,17 @@ body {
   box-shadow: 0 8px 24px rgba(0,0,0,0.1);
   border-radius: 12px;
   padding: 40px 30px;
-  max-width: 960px;
+  max-width: 960px; /* ancho máximo razonable para desktop */
   margin: 80px auto 40px;
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 60px;
+  flex-wrap: wrap; /* permite que en pantallas pequeñas baje el contenido */
+  align-items: flex-start;
+  gap: 40px;
 }
 
 /* Perfil: foto y nombre */
 .perfil {
-  flex: 1 1 250px;  /* crece, pero no menor a 250px */
+  flex: 0 0 250px;  /* ancho fijo para perfil, no crece ni se reduce */
   text-align: center;
 }
 
@@ -71,8 +71,17 @@ body {
 
 /* Secciones de información */
 .secciones {
-  flex: 2 1 500px;  /* crece más, pero mínimo 500px */
+  flex: 1 1 0; /* crece para ocupar el resto del espacio disponible */
+  min-width: 300px; /* evitar que se haga demasiado pequeño */
+  max-width: 660px; /* límite máximo para evitar textos muy anchos */
   text-align: left;
+}
+
+/* Limitar el ancho del contenido de párrafos y títulos para mejor legibilidad */
+.secciones h2,
+.secciones p,
+.secciones a {
+  max-width: 600px;
 }
 
 .secciones h2 {
@@ -106,15 +115,32 @@ body {
   .contenedor {
     flex-direction: column;
     margin: 40px 20px;
+    max-width: 100%; /* usar todo el ancho en móviles */
+    padding: 20px;
   }
 
   .perfil {
+    flex: none;
+    width: 100%;
     margin-bottom: 40px;
   }
 
   .foto-perfil {
     width: 140px;
     height: 140px;
+  }
+
+  .secciones {
+    flex: none;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* Quitar máximo ancho en textos para que usen el ancho completo */
+  .secciones h2,
+  .secciones p,
+  .secciones a {
+    max-width: 100%;
   }
 }
 
@@ -131,7 +157,7 @@ body.dark-mode .contenedor {
 
 body.dark-mode .perfil h1,
 body.dark-mode .secciones h2 {
-  color: #777; /* Azul claro */
+  color: #777; /* gris claro */
 }
 
 body.dark-mode .foto-perfil {
