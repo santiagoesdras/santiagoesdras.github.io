@@ -42,13 +42,14 @@ body {
   max-width: 960px;
   margin: 80px auto 40px;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 60px;
 }
 
 /* Perfil: foto y nombre */
 .perfil {
-  flex: 1;
+  flex: 1 1 250px;  /* crece, pero no menor a 250px */
   text-align: center;
 }
 
@@ -70,7 +71,7 @@ body {
 
 /* Secciones de información */
 .secciones {
-  flex: 2;
+  flex: 2 1 500px;  /* crece más, pero mínimo 500px */
   text-align: left;
 }
 
