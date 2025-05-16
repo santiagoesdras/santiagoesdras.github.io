@@ -69,44 +69,50 @@ body {
   color: #727e8c;
 }
 
-/* Secciones de información */
+/* Secciones de información - contenedor flexible para columnas */
 .secciones {
   flex: 1 1 0; /* crece para ocupar el resto del espacio disponible */
   min-width: 300px; /* evitar que se haga demasiado pequeño */
   max-width: 660px; /* límite máximo para evitar textos muy anchos */
   text-align: left;
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: flex-start;
 }
 
-/* Limitar el ancho del contenido de párrafos y títulos para mejor legibilidad */
-.secciones h2,
-.secciones p,
-.secciones a {
-  max-width: 600px;
+/* Cada bloque de info (titulo + párrafo) */
+.info-block {
+  flex: 1 1 45%; /* aproximadamente dos columnas */
+  min-width: 280px;
+  max-width: 320px;
 }
 
-.secciones h2 {
-  font-weight: 600;
-  font-size: 1.3rem;
+.info-block h2 {
   margin-bottom: 8px;
   color: #727e8c;
+  font-weight: 600;
+  font-size: 1.3rem;
   border-bottom: 2px solid #727e8c;
   padding-bottom: 4px;
-  margin-top: 24px;
+  margin-top: 0;
 }
 
-.secciones p {
+.info-block p {
   margin-bottom: 16px;
-  font-size: 1rem;
   color: #333;
+  font-size: 1rem;
+  max-width: 100%;
 }
 
-.secciones a {
+.info-block a {
   color: #727e8c;
-  text-decoration: none;
   font-weight: 600;
+  text-decoration: none;
 }
 
-.secciones a:hover {
+.info-block a:hover {
   text-decoration: underline;
 }
 
@@ -131,15 +137,23 @@ body {
   }
 
   .secciones {
+    flex-direction: column;
     flex: none;
     width: 100%;
     max-width: 100%;
+    gap: 20px;
+  }
+
+  .info-block {
+    flex: 1 1 100%;
+    max-width: 100%;
+    min-width: auto;
   }
 
   /* Quitar máximo ancho en textos para que usen el ancho completo */
-  .secciones h2,
-  .secciones p,
-  .secciones a {
+  .info-block h2,
+  .info-block p,
+  .info-block a {
     max-width: 100%;
   }
 }
@@ -156,7 +170,7 @@ body.dark-mode .contenedor {
 }
 
 body.dark-mode .perfil h1,
-body.dark-mode .secciones h2 {
+body.dark-mode .info-block h2 {
   color: #777; /* gris claro */
 }
 
@@ -165,8 +179,8 @@ body.dark-mode .foto-perfil {
   box-shadow: 0 0 15px rgba(82, 89, 96, 0.7);
 }
 
-body.dark-mode .secciones p,
-body.dark-mode .secciones a {
+body.dark-mode .info-block p,
+body.dark-mode .info-block a {
   color: #ccc;
 }
 
