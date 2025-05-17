@@ -140,6 +140,10 @@ body {
   }
 }
 
+.about-me p {
+  text-align: justify;
+}
+
 /* Modo oscuro */
 body.dark-mode {
   background: #121212;
